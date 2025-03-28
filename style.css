@@ -1,0 +1,146 @@
+body,html { 
+    margin: 0 ;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+}
+
+.logo { 
+    height: 10vh;
+    width: 10vh;
+}
+
+header button{ 
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition: border 0.3s ease-in-out;
+}
+
+header button:hover {
+    border: 1px solid yellow;
+}
+header input { 
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition: border 0.3s ease-in-out;
+}
+
+header input:focus { 
+    outline: none;
+    border: 1px solid yellow;
+}
+
+.lupa{ 
+    height: 3vh;
+    width: 3vh
+}
+
+.container { 
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    scrollbar-width: none;
+}
+
+.catalog { 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr ;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    font-size: 16px;
+
+}
+
+.catalog img { 
+    height: 10vh;
+    width: 10vh;
+}
+
+.cart { 
+    text-align: center;
+    font-size: 16px;
+}
+
+.addCart{ 
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: border 0.3s ease-in-out;
+}
+
+.addCart:hover { 
+    border: 1px solid yellow;
+}
+
+.Aboutas{
+    text-align: center; 
+    font-size: 16px;
+}
+
+.valid { 
+    text-align: center; 
+    font-size: 16px;
+}
+
+.helps { 
+    text-align: center; 
+    font-size: 16px;
+}       
+
+.toUp{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 20px;
+    top: 20px;
+}
+
+.toUp button { 
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: border 0.3s ease-in-out;
+}
+
+.toUp button:hover { 
+    border: 1px solid yellow;
+}
