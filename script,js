@@ -1,0 +1,134 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const addToCartButtons = document.querySelectorAll(".addCart");
+    const cartContainer = document.querySelector(".cartElement");
+    const totalSumElement = document.getElementById("sum");
+    const cartItems = {};
+    let totalSum = 0;
+
+    function updateTotalSum() {
+        totalSumElement.textContent = `Сумма: ${totalSum}р`;
+    }
+
+    function addItemToCart(productName, price) {
+        if (cartItems[productName]) {
+            cartItems[productName].quantity += 1;
+        } else {
+            cartItems[productName] = {
+                price: price,
+                quantity: 1,
+            };
+        }
+        totalSum += price;
+        updateTotalSum();
+        renderCart();
+    }
+
+    function renderCart() {
+        cartContainer.innerHTML = "";
+        for (const [productName, item] of Object.entries(cartItems)) {
+            const cartItemElement = document.createElement("div");
+            cartItemElement.classList.add("cart-item");
+            cartItemElement.innerHTML = `
+                <p>${productName} (${item.quantity}шт.) - ${item.price * item.quantity}р</p>
+            `;
+            cartContainer.appendChild(cartItemElement);
+        }
+    }
+
+    addToCartButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+            const productDiv = button.closest("div");
+            const productName = productDiv.querySelector("p:first-of-type").textContent;
+            const priceText = productDiv.querySelector("p:nth-of-type(2)").textContent;
+            const price = parseInt(priceText.replace("Цена: ", "").replace("р", ""), 10);
+            addItemToCart(productName, price);
+        });
+    });
+
+    const toTopButton = document.getElementById("toUp");
+    toTopButton.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    });
+});
+
+const btnAboutAs = document.getElementById('Abautas');
+const Aboutas = document.querySelector('.Aboutas');
+
+btnAboutAs.addEventListener('click' , () => { 
+    Aboutas.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start'
+    })
+})
+
+const btnContact = document.getElementById('contact'); 
+const divContact = document.querySelector('.valid');
+
+btnContact.addEventListener('click' , () => { 
+    divContact.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start'
+    })
+})
+
+const btnHelp = document.getElementById('help'); 
+const divHelp = document.querySelector('.helps');
+
+btnHelp.addEventListener('click' , () => { 
+    divHelp.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start'
+    })
+})
+
+const toUp = document.getElementById('toUp'); 
+
+toUp.addEventListener('click' , () => { 
+    window.scrollTo({ 
+        top: 0, 
+        behavior: 'smooth'
+    })
+})
+
+const search = document.getElementById('search'); 
+const lupa = document.getElementById('lupa'); 
+const db = [
+    {
+        name: 'драконий фрукт',
+        price: 1000
+    },
+    {
+        name: 'виноград',
+        price: 100
+    },
+    {
+        name: 'персик',
+        price: 100  
+    }
+]
+
+lupa.addEventListener('click' , () => {
+    const result = db.filter(item => item.name.toLowerCase().includes(search.value.toLowerCase())); 
+    const dragon = document.querySelector('.product1'); 
+    const vino = document.querySelector('.product2'); 
+    const persik = document.querySelector('.product3');
+    if(result[0].name === 'драконий фрукт') { 
+        dragon.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'
+        })
+    } else if (result[0].name === 'виноград') { 
+        vino.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'
+        })
+    } else if (result[0].name === 'персик') { 
+        persik.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'
+        })
+    }
+})
